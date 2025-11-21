@@ -551,6 +551,181 @@
             font-size: 0.8rem;
         }
 
+        /* Clickable testimonial indicator */
+        .testimonial-clickable {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-clickable:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border-color: var(--primary-dark);
+        }
+
+        .click-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+            font-size: 0.75rem;
+            color: #0176d3;
+            font-weight: 600;
+        }
+
+        .click-indicator i {
+            font-size: 1.1rem;
+            animation: pointBlink 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pointBlink {
+            0%, 100% { opacity: 1; transform: translateX(0); }
+            50% { opacity: 0.4; transform: translateX(3px); }
+        }
+
+        /* Case Study Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease-out;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            padding: 24px 28px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0 0 4px 0;
+        }
+
+        .modal-header p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-400);
+            padding: 0;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-dark);
+        }
+
+        .modal-body {
+            padding: 28px;
+        }
+
+        .case-study-section {
+            margin-bottom: 24px;
+        }
+
+        .case-study-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0176d3;
+            margin-bottom: 8px;
+        }
+
+        .case-study-label i {
+            font-size: 0.9rem;
+        }
+
+        .case-study-content {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .case-study-content ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .case-study-content li {
+            margin-bottom: 6px;
+        }
+
+        .solution-highlight {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid #0176d3;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 8px;
+        }
+
+        .outcome-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #dcfce7;
+            color: #166534;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .outcome-badge i {
+            color: #22c55e;
+        }
+
         /* CTA Section */
         .cta-section {
             background: var(--primary-dark);
@@ -734,21 +909,359 @@
         ];
 
         const testimonials = [
-            { text: "Himanshu is one of the hidden treasures in the Salesforce Ecosystem. Ever since we hired him, it has been tremendous improvement to our Salesforce Development process. He built one of the best development pipeline processes using GitLab and Salesforce Integration.", initials: "DT", name: "DevOps Client", role: "GitLab CI/CD Pipeline" },
-            { text: "Himanshu is an outstanding Salesforce developer! He is highly skilled, detail-oriented, and delivers quality work on time. His deep understanding of Salesforce, combined with his problem-solving abilities, makes him a valuable asset.", initials: "SD", name: "Enterprise Client", role: "Salesforce Development" },
-            { text: "Himanshu's patient and diligent approach to problem solving and his knowledge of Salesforce CPQ and Billing were critical for a unique customization challenge. Always up for the challenge and willing to research novel solutions.", initials: "CP", name: "CPQ Client", role: "CPQ + Stripe Integration" },
-            { text: "Himanshu really helped us out of a tricky Salesforce situation. We had issues with our CPQ and Billing setup, and he not only fixed the problems but brought fresh ideas to the table - especially with custom Stripe Elements.", initials: "HT", name: "High Tech Client", role: "CPQ & Billing" },
-            { text: "Himanshu has done an excellent job in our Real Estate projects. When the project was stuck, he worked very hard to find solutions. The project went from being blocked to becoming one of the highest revenue-generating parts of the company.", initials: "RE", name: "Real Estate Client", role: "Service Cloud Voice" },
-            { text: "We needed someone to fix our Salesforce dev process, and Himanshu exceeded expectations. He helped us set up a solid GitLab + VSCode pipeline. Besides being technically strong, he's down to earth and just gets things done.", initials: "HT", name: "High Tech Client", role: "DevOps Pipeline" },
-            { text: "After a bad experience with another freelancer, Himanshu came in and turned things around quickly. He's responsive, sharp, and just easy to work with. Honestly one of the best developers we've worked with in Salesforce ecosystem.", initials: "HT", name: "High Tech Client", role: "Project Recovery" },
-            { text: "Working with Himanshu on a Salesforce project was a game-changer. Not only did he bring superb technical knowledge but also a knack for simplifying complex issues. His blend of expertise, patience, and commitment transformed a daunting task.", initials: "SF", name: "Screen Flow Client", role: "Salesforce Complexities" },
-            { text: "Great experience and amazing work. Himanshu does incredible work. His broad expertise has been exceptional to accomplishing our objectives.", initials: "SC", name: "Service Cloud Client", role: "Service Cloud Voice" },
-            { text: "Very responsible, quick, and efficient. I will definitely work with him again. Recommended!", initials: "AC", name: "Apex Client", role: "Code Coverage" },
-            { text: "Professional and very supportive, strongly recommend for salesforce job. I absolutely recommend Himanshu for Salesforce Development work.", initials: "TC", name: "Technical Client", role: "Consultation" },
-            { text: "We were having a tough time after a bad Salesforce contractor experience, but the AQBEE team was quick to step in and fix things. Their responsiveness and understanding of our business made all the difference.", initials: "ME", name: "Media Client", role: "Communications Cloud" },
-            { text: "Working with the AQBEE team has been a great experience. They really understood what we needed and came up with smart, helpful ideas along the way. Even when things got tricky, they stayed focused and got the job done right.", initials: "CR", name: "Construction Client", role: "Agentforce Implementation" },
-            { text: "Kudos for delivering outstanding work! The collaboration, attention to detail, and commitment to quality were clearly evident. Proactive communication made a real difference.", initials: "EU", name: "Energy Client", role: "CPQ Implementation" },
-            { text: "We are very happy with the skill-set that Himanshu brings to the table and are moving him to a more advanced project. Looking forward to working with him!", initials: "RC", name: "Long-term Client", role: "Multiple Projects" }
+            { 
+                text: "Himanshu is one of the hidden treasures in the Salesforce Ecosystem. Ever since we hired him, it has been tremendous improvement to our Salesforce Development process. He built one of the best development pipeline processes using GitLab and Salesforce Integration.", 
+                initials: "DT", 
+                name: "DevOps Client", 
+                role: "GitLab CI/CD Pipeline",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "DevOps Pipeline Transformation",
+                    subtitle: "GitLab CI/CD Integration with Salesforce",
+                    businessProcess: "The client's development team was manually deploying Salesforce changes using Change Sets, leading to inconsistent deployments, no version control, and frequent production issues. Multiple developers were overwriting each other's work, and there was no way to track who changed what.",
+                    painPoints: [
+                        "Manual Change Set deployments taking 2-3 hours per release",
+                        "No version control – changes were lost or overwritten regularly",
+                        "Production hotfixes bypassing QA, causing regression bugs",
+                        "No audit trail for compliance requirements",
+                        "Team conflicts due to overlapping work without visibility"
+                    ],
+                    request: "Build an automated CI/CD pipeline that integrates GitLab with Salesforce, enabling version-controlled deployments with proper branching strategy, automated testing, and rollback capabilities.",
+                    solution: "Implemented a complete GitLab CI/CD pipeline with SFDX, featuring feature branches, merge request workflows, automated Apex test execution, and one-click deployments to sandbox and production environments. Set up scratch orgs for isolated development and PMD static code analysis.",
+                    outcomes: [
+                        { icon: "bi-clock", text: "Deployment time: 2-3 hours → 15 minutes" },
+                        { icon: "bi-bug", text: "Production bugs reduced by 70%" },
+                        { icon: "bi-people", text: "Team velocity increased 3x" },
+                        { icon: "bi-shield-check", text: "Full audit trail for compliance" }
+                    ]
+                }
+            },
+            { 
+                text: "Himanshu is an outstanding Salesforce developer! He is highly skilled, detail-oriented, and delivers quality work on time. His deep understanding of Salesforce, combined with his problem-solving abilities, makes him a valuable asset.", 
+                initials: "SD", 
+                name: "Enterprise Client", 
+                role: "Salesforce Development",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Enterprise Sales Process Overhaul",
+                    subtitle: "Custom Salesforce Development & Automation",
+                    businessProcess: "The client had a complex B2B sales process with 5 different product lines, each having unique qualification criteria, approval workflows, and pricing models. Sales reps were using spreadsheets alongside Salesforce, creating data silos and inaccurate forecasting.",
+                    painPoints: [
+                        "Sales reps spending 40% of time on data entry across systems",
+                        "Inaccurate pipeline forecasting due to inconsistent data",
+                        "No visibility into deal progression for leadership",
+                        "Manual approval routing causing 3-5 day delays",
+                        "Lost deals due to missed follow-ups and no automated reminders"
+                    ],
+                    request: "Consolidate all sales processes into Salesforce with automated workflows, custom UI for different product lines, and real-time dashboards for leadership visibility.",
+                    solution: "Built custom LWC components for each product line with dynamic forms and validation. Implemented automated lead routing with assignment rules, approval processes with parallel approvals, and Einstein Activity Capture for email/calendar sync. Created executive dashboards with real-time pipeline visibility.",
+                    outcomes: [
+                        { icon: "bi-graph-up-arrow", text: "Sales productivity up 35%" },
+                        { icon: "bi-speedometer2", text: "Deal cycle reduced by 25%" },
+                        { icon: "bi-eye", text: "100% pipeline visibility" },
+                        { icon: "bi-lightning", text: "Approvals: 3-5 days → same day" }
+                    ]
+                }
+            },
+            { text: "Himanshu's patient and diligent approach to problem solving and his knowledge of Salesforce CPQ and Billing were critical for a unique customization challenge. Always up for the challenge and willing to research novel solutions.", initials: "CP", name: "CPQ Client", role: "CPQ + Stripe Integration",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "CPQ & Custom Payment Integration",
+                    subtitle: "Salesforce CPQ + Stripe Elements Implementation",
+                    businessProcess: "The client sold subscription-based software with complex pricing tiers, add-ons, and usage-based billing. Their sales team was manually calculating quotes in spreadsheets, then separately processing payments through a basic Stripe dashboard with no connection to Salesforce.",
+                    painPoints: [
+                        "Quote creation took 45+ minutes with frequent pricing errors",
+                        "No connection between CRM and payment processing",
+                        "Failed payments required manual follow-up with no automation",
+                        "Revenue recognition was a nightmare for finance team",
+                        "Customers couldn't self-service update payment methods"
+                    ],
+                    request: "Implement Salesforce CPQ for automated quoting and integrate Stripe directly into Salesforce with custom payment UI that matches their brand, including subscription management and failed payment handling.",
+                    solution: "Deployed Salesforce CPQ with complex pricing rules, bundle configurations, and approval workflows. Built custom LWC components using Stripe Elements for PCI-compliant payment capture directly in Salesforce. Implemented automated dunning for failed payments and a customer portal for payment method updates.",
+                    outcomes: [
+                        { icon: "bi-clock", text: "Quote time: 45 min → 5 min" },
+                        { icon: "bi-credit-card", text: "Payment collection automated" },
+                        { icon: "bi-arrow-repeat", text: "95% subscription renewal rate" },
+                        { icon: "bi-cash-stack", text: "Revenue leakage eliminated" }
+                    ]
+                }
+            },
+            { text: "Himanshu really helped us out of a tricky Salesforce situation. We had issues with our CPQ and Billing setup, and he not only fixed the problems but brought fresh ideas to the table - especially with custom Stripe Elements.", initials: "HT", name: "High Tech Client", role: "CPQ & Billing",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "CPQ & Billing System Rescue",
+                    subtitle: "Fixing Broken Implementation + Enhancements",
+                    businessProcess: "The client had a partially implemented CPQ and Billing setup from a previous contractor that was causing data inconsistencies, incorrect invoices, and frustrated customers. Sales couldn't trust the system and had reverted to manual processes.",
+                    painPoints: [
+                        "Invoices generating with wrong amounts and dates",
+                        "CPQ price rules conflicting and producing errors",
+                        "Billing schedules not syncing with contract terms",
+                        "Previous contractor left with no documentation",
+                        "Sales team abandoned the system, using Excel instead"
+                    ],
+                    request: "Audit and fix the existing CPQ/Billing implementation, document everything, and add the custom Stripe integration they originally wanted but never got.",
+                    solution: "Conducted full system audit identifying 47 configuration issues. Rebuilt price rules with proper evaluation order, fixed billing schedule triggers, and cleaned up corrupted data. Added custom Stripe Elements integration for seamless payment capture and created comprehensive documentation.",
+                    outcomes: [
+                        { icon: "bi-bug", text: "47 critical issues fixed" },
+                        { icon: "bi-file-text", text: "100% invoice accuracy" },
+                        { icon: "bi-people", text: "Sales team re-adopted system" },
+                        { icon: "bi-book", text: "Full documentation delivered" }
+                    ]
+                }
+            },
+            { text: "Himanshu has done an excellent job in our Real Estate projects. When the project was stuck, he worked very hard to find solutions. The project went from being blocked to becoming one of the highest revenue-generating parts of the company.", initials: "RE", name: "Real Estate Client", role: "Service Cloud Voice",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Real Estate Call Center Transformation",
+                    subtitle: "Service Cloud Voice Implementation",
+                    businessProcess: "The client operated a real estate call center handling inbound inquiries for property listings. Agents were using a separate phone system with no CRM integration, manually logging calls and missing critical follow-ups on high-value leads.",
+                    painPoints: [
+                        "No caller identification - agents asked same questions repeatedly",
+                        "Call notes stored in separate system, often lost",
+                        "No way to track which properties callers inquired about",
+                        "Managers had zero visibility into call metrics",
+                        "Hot leads falling through cracks due to no automated follow-up"
+                    ],
+                    request: "Implement Service Cloud Voice to unify phone and CRM, with screen pops showing caller history, automatic call logging, and integration with their property listing database.",
+                    solution: "Deployed Service Cloud Voice with Amazon Connect, built custom screen pop LWC showing caller history and interested properties, implemented automatic call transcription, and created lead scoring based on call engagement. Added automated SMS/email follow-ups triggered by call outcomes.",
+                    outcomes: [
+                        { icon: "bi-telephone", text: "Screen pop with full context" },
+                        { icon: "bi-graph-up", text: "Lead conversion up 40%" },
+                        { icon: "bi-cash", text: "Highest revenue channel" },
+                        { icon: "bi-bar-chart", text: "Real-time call analytics" }
+                    ]
+                }
+            },
+            { text: "We needed someone to fix our Salesforce dev process, and Himanshu exceeded expectations. He helped us set up a solid GitLab + VSCode pipeline. Besides being technically strong, he's down to earth and just gets things done.", initials: "HT", name: "High Tech Client", role: "DevOps Pipeline",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Development Process Modernization",
+                    subtitle: "GitLab + VS Code + SFDX Pipeline",
+                    businessProcess: "A growing tech company had 8 Salesforce developers all working in the same sandbox, deploying via Change Sets with no branching strategy. Code reviews happened over screen shares, and deployments were a 'hope it works' situation.",
+                    painPoints: [
+                        "Developers overwriting each other's work constantly",
+                        "No code review process - bugs shipped to production",
+                        "Change Sets failing mid-deployment with no rollback",
+                        "New developers took weeks to get environment set up",
+                        "No automated testing - manual QA only"
+                    ],
+                    request: "Set up a proper development workflow with Git version control, automated deployments, and a standardized development environment that new team members can spin up quickly.",
+                    solution: "Implemented GitLab with SFDX, feature branch workflow, and merge request code reviews. Created standardized VS Code workspace with recommended extensions and settings. Set up CI/CD pipelines for automated testing and deployment, plus scratch org scripts for instant dev environments.",
+                    outcomes: [
+                        { icon: "bi-git", text: "Full version control" },
+                        { icon: "bi-person-plus", text: "New dev setup: weeks → 2 hours" },
+                        { icon: "bi-check-circle", text: "Automated test coverage" },
+                        { icon: "bi-arrow-counterclockwise", text: "One-click rollbacks" }
+                    ]
+                }
+            },
+            { text: "After a bad experience with another freelancer, Himanshu came in and turned things around quickly. He's responsive, sharp, and just easy to work with. Honestly one of the best developers we've worked with in Salesforce ecosystem.", initials: "HT", name: "High Tech Client", role: "Project Recovery",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Failed Project Recovery",
+                    subtitle: "Rescuing a Stalled Salesforce Implementation",
+                    businessProcess: "The client had hired a freelancer to build a customer portal and case management system. After 3 months and significant investment, they were left with broken code, no documentation, and a system that couldn't go live.",
+                    painPoints: [
+                        "Portal login failing for 50% of users",
+                        "Case creation throwing errors with no clear cause",
+                        "Previous developer disappeared mid-project",
+                        "Code had no comments and was not bulkified",
+                        "Already 2 months past promised launch date"
+                    ],
+                    request: "Assess the damage, fix what can be saved, rebuild what can't, and get us live within 4 weeks. Also need documentation so this doesn't happen again.",
+                    solution: "Conducted rapid code audit, identified critical bugs (including a SOQL in loop causing timeouts). Refactored core functionality, fixed authentication issues, implemented proper error handling, and added comprehensive test coverage. Delivered full technical documentation.",
+                    outcomes: [
+                        { icon: "bi-rocket", text: "Launched in 3 weeks" },
+                        { icon: "bi-bug", text: "23 critical bugs fixed" },
+                        { icon: "bi-speedometer2", text: "Page load 8s → 1.2s" },
+                        { icon: "bi-journal-code", text: "Full documentation" }
+                    ]
+                }
+            },
+            { text: "Working with Himanshu on a Salesforce project was a game-changer. Not only did he bring superb technical knowledge but also a knack for simplifying complex issues. His blend of expertise, patience, and commitment transformed a daunting task.", initials: "SF", name: "Screen Flow Client", role: "Salesforce Complexities",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Complex Flow Architecture",
+                    subtitle: "Screen Flow Optimization & Redesign",
+                    businessProcess: "The client had a 200+ element Screen Flow for their sales intake process that had grown organically over 2 years. It was slow, buggy, frequently timed out, and no one understood how it worked anymore.",
+                    painPoints: [
+                        "Flow timing out after 5+ minutes of user input",
+                        "Errors with cryptic messages frustrating sales team",
+                        "No one knew which paths were actually being used",
+                        "Adding new fields required 2+ days of testing",
+                        "Mobile users couldn't complete the flow at all"
+                    ],
+                    request: "Rebuild the flow to be fast, maintainable, and mobile-friendly. Need to understand what it actually does and simplify where possible without losing functionality.",
+                    solution: "Mapped all 200+ elements and identified 40% were dead paths. Redesigned as modular sub-flows with clear naming conventions. Moved complex logic to invocable Apex for performance. Implemented proper error handling with user-friendly messages and added Flow analytics for usage tracking.",
+                    outcomes: [
+                        { icon: "bi-lightning", text: "Completion time: 12 min → 3 min" },
+                        { icon: "bi-phone", text: "Mobile-friendly design" },
+                        { icon: "bi-puzzle", text: "Modular, maintainable architecture" },
+                        { icon: "bi-graph-down", text: "Errors reduced 90%" }
+                    ]
+                }
+            },
+            { text: "Great experience and amazing work. Himanshu does incredible work. His broad expertise has been exceptional to accomplishing our objectives.", initials: "SC", name: "Service Cloud Client", role: "Service Cloud Voice",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Service Cloud Voice Deployment",
+                    subtitle: "Unified Contact Center Solution",
+                    businessProcess: "The client's support team was juggling between a legacy phone system, email, and chat - all disconnected. Agents had to ask customers to repeat information, and supervisors had no unified view of team performance.",
+                    painPoints: [
+                        "Agents switching between 4 different applications",
+                        "No unified customer history across channels",
+                        "Average handle time was 12+ minutes",
+                        "Supervisors couldn't monitor calls in real-time",
+                        "No way to route calls based on customer value or issue type"
+                    ],
+                    request: "Implement Service Cloud Voice to bring phone into Salesforce, with omni-channel routing, real-time transcription, and supervisor dashboards.",
+                    solution: "Deployed Service Cloud Voice with Amazon Connect, configured omni-channel routing based on case type and customer tier, implemented real-time call transcription with Einstein, and built supervisor dashboards with live call monitoring and whisper coaching capabilities.",
+                    outcomes: [
+                        { icon: "bi-headset", text: "Single agent desktop" },
+                        { icon: "bi-clock-history", text: "Handle time: 12 min → 7 min" },
+                        { icon: "bi-mic", text: "Real-time transcription" },
+                        { icon: "bi-eye", text: "Live supervisor monitoring" }
+                    ]
+                }
+            },
+            { text: "Very responsible, quick, and efficient. I will definitely work with him again. Recommended!", initials: "AC", name: "Apex Client", role: "Code Coverage",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Test Coverage Emergency",
+                    subtitle: "Rapid Code Coverage Improvement",
+                    businessProcess: "The client needed to deploy critical business functionality but was blocked because org-wide test coverage had dropped to 62%. They had a hard deadline for a product launch and couldn't deploy anything until coverage was fixed.",
+                    painPoints: [
+                        "Org blocked from all deployments",
+                        "Product launch deadline in 2 weeks",
+                        "Legacy code with zero test coverage",
+                        "Some tests were actually failing silently",
+                        "No one on team specialized in Apex testing"
+                    ],
+                    request: "Get our test coverage above 75% within one week so we can deploy our launch features. Prioritize the most critical classes.",
+                    solution: "Audited all Apex classes and identified coverage gaps. Fixed 12 failing tests that were being skipped. Wrote comprehensive test classes for 34 critical classes using test data factories and mocking patterns. Implemented best practices documentation for future development.",
+                    outcomes: [
+                        { icon: "bi-percent", text: "Coverage: 62% → 84%" },
+                        { icon: "bi-calendar-check", text: "Delivered in 5 days" },
+                        { icon: "bi-check2-all", text: "All tests passing" },
+                        { icon: "bi-rocket", text: "Launch deployed on time" }
+                    ]
+                }
+            },
+            { text: "Professional and very supportive, strongly recommend for salesforce job. I absolutely recommend Himanshu for Salesforce Development work.", initials: "TC", name: "Technical Client", role: "Consultation",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Salesforce Architecture Consultation",
+                    subtitle: "Strategic Technical Advisory",
+                    businessProcess: "A growing startup was about to invest heavily in Salesforce but wasn't sure which clouds they needed, how to structure their data model, or whether to build custom vs. use AppExchange apps. They needed expert guidance before committing.",
+                    painPoints: [
+                        "Overwhelmed by Salesforce product options",
+                        "Previous vendor quotes ranged from $50K to $300K",
+                        "Concerned about building something that won't scale",
+                        "Team had no Salesforce experience",
+                        "Needed to integrate with 5 existing systems"
+                    ],
+                    request: "Provide honest, vendor-neutral consultation on what we actually need, help us avoid over-buying licenses, and create a roadmap we can execute in phases.",
+                    solution: "Conducted discovery sessions to understand business processes and growth plans. Delivered comprehensive architecture document with recommended clouds, license types, data model design, and integration approach. Created phased roadmap prioritizing quick wins. Identified $80K in unnecessary licenses from other vendor quotes.",
+                    outcomes: [
+                        { icon: "bi-map", text: "Clear 18-month roadmap" },
+                        { icon: "bi-piggy-bank", text: "$80K saved on licenses" },
+                        { icon: "bi-diagram-3", text: "Scalable data model" },
+                        { icon: "bi-arrows-angle-expand", text: "Phase 1 launched in 6 weeks" }
+                    ]
+                }
+            },
+            { text: "We were having a tough time after a bad Salesforce contractor experience, but the AQBEE team was quick to step in and fix things. Their responsiveness and understanding of our business made all the difference.", initials: "ME", name: "Media Client", role: "Communications Cloud",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Communications Cloud Recovery",
+                    subtitle: "Media Company Platform Rescue",
+                    businessProcess: "A media company had invested in Communications Cloud to manage advertising sales and client relationships. The previous contractor delivered a system that didn't match their sales workflow, and adoption was nearly zero.",
+                    painPoints: [
+                        "System didn't match how ad sales actually worked",
+                        "Campaign tracking was completely broken",
+                        "Sales team refused to use it - back to spreadsheets",
+                        "No integration with their ad serving platform",
+                        "Leadership had zero pipeline visibility"
+                    ],
+                    request: "Fix the Communications Cloud setup to actually work for media ad sales. We need campaign tracking, integration with our ad server, and reports leadership can trust.",
+                    solution: "Rebuilt the opportunity and campaign structure to match media sales cycles. Created custom LWC for media plan creation with product catalog integration. Built real-time sync with their ad serving platform and delivered executive dashboards showing pipeline by advertiser, agency, and campaign type.",
+                    outcomes: [
+                        { icon: "bi-people", text: "90% sales team adoption" },
+                        { icon: "bi-broadcast", text: "Ad server integration live" },
+                        { icon: "bi-graph-up", text: "Pipeline visibility achieved" },
+                        { icon: "bi-calendar3", text: "Fixed in 6 weeks" }
+                    ]
+                }
+            },
+            { text: "Working with the AQBEE team has been a great experience. They really understood what we needed and came up with smart, helpful ideas along the way. Even when things got tricky, they stayed focused and got the job done right.", initials: "CR", name: "Construction Client", role: "Agentforce Implementation",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Agentforce for Construction",
+                    subtitle: "AI-Powered Field Service Automation",
+                    businessProcess: "A construction company wanted to leverage Salesforce's new Agentforce capabilities to automate their field service scheduling, project updates, and subcontractor communications. They were early adopters looking to gain competitive advantage.",
+                    painPoints: [
+                        "Dispatchers spending hours on manual scheduling",
+                        "Project managers chasing updates via phone calls",
+                        "Subcontractors missing notifications about changes",
+                        "Weather delays not automatically rescheduling work",
+                        "Wanted AI but didn't know where to start"
+                    ],
+                    request: "Implement Agentforce to automate routine scheduling decisions, send smart notifications to field crews, and provide project managers with AI-generated status summaries.",
+                    solution: "Deployed Agentforce with custom actions for schedule optimization considering crew skills, location, and weather. Built automated notification flows for subcontractors. Implemented AI-generated weekly project summaries and created conversational interface for field crews to update job status via natural language.",
+                    outcomes: [
+                        { icon: "bi-robot", text: "AI scheduling assistant live" },
+                        { icon: "bi-clock", text: "Dispatch time reduced 60%" },
+                        { icon: "bi-chat-dots", text: "Natural language updates" },
+                        { icon: "bi-cloud-sun", text: "Weather-aware rescheduling" }
+                    ]
+                }
+            },
+            { text: "Kudos for delivering outstanding work! The collaboration, attention to detail, and commitment to quality were clearly evident. Proactive communication made a real difference.", initials: "EU", name: "Energy Client", role: "CPQ Implementation",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Energy Sector CPQ Deployment",
+                    subtitle: "Complex Pricing for Energy Products",
+                    businessProcess: "An energy supply company sold electricity and gas plans with pricing that varied by region, usage tier, contract length, and regulatory requirements. Sales reps were using 15 different spreadsheets to calculate quotes, leading to errors and compliance issues.",
+                    painPoints: [
+                        "Pricing spreadsheets with 50+ tabs and macros",
+                        "Regulatory pricing changes took weeks to implement",
+                        "Compliance team manually reviewing every quote",
+                        "Contract generation was copy-paste from templates",
+                        "No visibility into margin on quoted deals"
+                    ],
+                    request: "Implement CPQ that handles our complex regional pricing, automatically applies regulatory requirements, and generates compliant contracts. Need real-time margin visibility for sales managers.",
+                    solution: "Deployed Salesforce CPQ with custom pricing calculator for energy products, regional price books with automatic regulatory adjustments, and approval workflows based on margin thresholds. Integrated contract generation with dynamic clause selection based on product and region. Built margin analytics dashboard.",
+                    outcomes: [
+                        { icon: "bi-calculator", text: "Quote accuracy: 100%" },
+                        { icon: "bi-shield-check", text: "Auto-compliance checking" },
+                        { icon: "bi-file-earmark-text", text: "Contracts in 2 clicks" },
+                        { icon: "bi-currency-dollar", text: "Real-time margin visibility" }
+                    ]
+                }
+            },
+            { text: "We are very happy with the skill-set that Himanshu brings to the table and are moving him to a more advanced project. Looking forward to working with him!", initials: "RC", name: "Long-term Client", role: "Multiple Projects",
+                hasCaseStudy: true,
+                caseStudy: {
+                    title: "Ongoing Partnership Success",
+                    subtitle: "Multi-Phase Salesforce Evolution",
+                    businessProcess: "What started as a small Flow optimization project evolved into a long-term partnership spanning multiple Salesforce initiatives. The client appreciated the quality of work and expanded scope to cover their entire Salesforce roadmap.",
+                    painPoints: [
+                        "Initial project: Flow running too slowly",
+                        "Discovered: Broader technical debt across org",
+                        "Growing team with inconsistent Salesforce skills",
+                        "Multiple integrations needed modernization",
+                        "No documentation from previous implementations"
+                    ],
+                    request: "Start with the Flow fix, then help us tackle our backlog of Salesforce improvements. We need a trusted partner who understands our system and can work across different projects.",
+                    solution: "Fixed initial Flow issue in week one, then conducted org health assessment. Prioritized technical debt remediation, rebuilt critical integrations with modern patterns, established coding standards and documentation practices. Now serving as ongoing Salesforce architecture advisor across all initiatives.",
+                    outcomes: [
+                        { icon: "bi-arrow-repeat", text: "3+ years partnership" },
+                        { icon: "bi-kanban", text: "12 projects delivered" },
+                        { icon: "bi-mortarboard", text: "Team skills elevated" },
+                        { icon: "bi-heart", text: "Trusted advisor status" }
+                    ]
+                }
+            }
         ];
 
         // Components
@@ -1067,31 +1580,142 @@
             </section>
         );
 
-        const Testimonials = () => (
-            <section id="reviews" className="py-5">
-                <div className="container">
-                    <p className="section-title">Client Feedback</p>
-                    <h2 className="section-heading">What Clients Say</h2>
-                    <div className="row g-3">
-                        {testimonials.map((t, i) => (
-                            <div key={i} className="col-md-6 col-lg-4">
-                                <div className="testimonial-card">
-                                    <div className="testimonial-stars">★★★★★</div>
-                                    <p className="testimonial-text">"{t.text}"</p>
-                                    <div className="d-flex align-items-center">
-                                        <div className="testimonial-avatar">{t.initials}</div>
-                                        <div className="testimonial-info">
-                                            <div className="testimonial-name">{t.name}</div>
-                                            <div className="testimonial-role">{t.role}</div>
-                                        </div>
+        const CaseStudyModal = ({ testimonial, onClose }) => {
+            const cs = testimonial.caseStudy;
+            
+            // Close on escape key
+            React.useEffect(() => {
+                const handleEscape = (e) => {
+                    if (e.key === 'Escape') onClose();
+                };
+                document.addEventListener('keydown', handleEscape);
+                return () => document.removeEventListener('keydown', handleEscape);
+            }, [onClose]);
+
+            return (
+                <div className="modal-overlay" onClick={onClose}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <div>
+                                <h3>{cs.title}</h3>
+                                <p>{cs.subtitle}</p>
+                            </div>
+                            <button className="modal-close" onClick={onClose}>×</button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="case-study-section">
+                                <div className="case-study-label">
+                                    <i className="bi bi-diagram-3"></i>
+                                    Business Process
+                                </div>
+                                <div className="case-study-content">
+                                    {cs.businessProcess}
+                                </div>
+                            </div>
+
+                            <div className="case-study-section">
+                                <div className="case-study-label">
+                                    <i className="bi bi-exclamation-triangle"></i>
+                                    Pain Points
+                                </div>
+                                <div className="case-study-content">
+                                    <ul>
+                                        {cs.painPoints.map((point, i) => (
+                                            <li key={i}>{point}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="case-study-section">
+                                <div className="case-study-label">
+                                    <i className="bi bi-chat-square-text"></i>
+                                    What They Asked For
+                                </div>
+                                <div className="case-study-content">
+                                    {cs.request}
+                                </div>
+                            </div>
+
+                            <div className="case-study-section">
+                                <div className="case-study-label">
+                                    <i className="bi bi-lightbulb"></i>
+                                    Our Solution
+                                </div>
+                                <div className="case-study-content">
+                                    <div className="solution-highlight">
+                                        {cs.solution}
                                     </div>
                                 </div>
                             </div>
-                        ))}
+
+                            <div className="case-study-section">
+                                <div className="case-study-label">
+                                    <i className="bi bi-trophy"></i>
+                                    Outcomes & Results
+                                </div>
+                                <div className="case-study-content">
+                                    <div style={{marginTop: '8px'}}>
+                                        {cs.outcomes.map((outcome, i) => (
+                                            <span key={i} className="outcome-badge">
+                                                <i className={outcome.icon}></i>
+                                                {outcome.text}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
-        );
+            );
+        };
+
+        const Testimonials = () => {
+            const [selectedTestimonial, setSelectedTestimonial] = React.useState(null);
+
+            return (
+                <section id="reviews" className="py-5">
+                    <div className="container">
+                        <p className="section-title">Client Feedback</p>
+                        <h2 className="section-heading">What Clients Say</h2>
+                        <div className="row g-3">
+                            {testimonials.map((t, i) => (
+                                <div key={i} className="col-md-6 col-lg-4">
+                                    <div 
+                                        className={`testimonial-card ${t.hasCaseStudy ? 'testimonial-clickable' : ''}`}
+                                        onClick={() => t.hasCaseStudy && setSelectedTestimonial(t)}
+                                    >
+                                        <div className="testimonial-stars">★★★★★</div>
+                                        <p className="testimonial-text">"{t.text}"</p>
+                                        <div className="d-flex align-items-center">
+                                            <div className="testimonial-avatar">{t.initials}</div>
+                                            <div className="testimonial-info">
+                                                <div className="testimonial-name">{t.name}</div>
+                                                <div className="testimonial-role">{t.role}</div>
+                                            </div>
+                                        </div>
+                                        {t.hasCaseStudy && (
+                                            <div className="click-indicator">
+                                                <i className="bi bi-hand-index-thumb"></i>
+                                                Click to view case study details
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    {selectedTestimonial && (
+                        <CaseStudyModal 
+                            testimonial={selectedTestimonial} 
+                            onClose={() => setSelectedTestimonial(null)} 
+                        />
+                    )}
+                </section>
+            );
+        };
 
         const CTA = () => (
             <section className="py-5">

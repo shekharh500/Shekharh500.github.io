@@ -4,63 +4,30 @@
 
 ## About
 
-Professional portfolio website showcasing my expertise as a **15x Salesforce Certified** Solution Architect & Developer with 7+ years of experience.
+Professional portfolio website showcasing my expertise as a **10x Salesforce Certified** Solution Architect & Developer with 7+ years of experience.
 
 ## Features
 
-- Modern dark theme with Salesforce-inspired colors
-- Fully responsive design (mobile, tablet, desktop)
-- Profile photo with animated border
-- Real Salesforce certification badges
-- Smooth scroll navigation
-- Hover animations and effects
+- ✨ Modern dark theme with animated background grid
+- 🎨 Gradient accents and glowing effects
+- 📱 Fully responsive (mobile, tablet, desktop)
+- 🖼️ Animated profile photo with rotating border
+- 🏆 Real Salesforce certification badges
+- 🔄 Smooth scroll reveal animations
+- ⚡ JavaScript-powered interactions
 
-## Sections
+## Certifications (10)
 
-- **Hero** - Introduction with profile photo
-- **Stats** - Key metrics (7+ years, 10K+ hours, 100+ projects)
-- **Expertise** - Core skills and specializations
-- **Projects** - Featured case studies with results
-- **Certifications** - 15 Salesforce badges with official icons
-- **Tech Stack** - Complete technology expertise
-- **Experience** - Professional timeline
-- **Reviews** - Client testimonials
-- **Contact** - CTA and social links
-
-## Tech Stack
-
-- Pure HTML5 & CSS3
-- CSS Variables & Custom Properties
-- CSS Grid & Flexbox
-- Google Fonts (Inter)
-- Inline SVG icons
-- No JavaScript dependencies
-
-## Structure
-
-```
-shekharh500.github.io/
-├── index.html
-├── profile.jpg
-├── _config.yml
-├── README.md
-├── .gitignore
-└── icons/
-    ├── admin.png
-    ├── app-architect.png
-    ├── app-builder.png
-    ├── data-architect.png
-    ├── data-cloud.png
-    ├── experience-cloud.png
-    ├── js1.png
-    ├── pd1.png
-    ├── pd2.png
-    ├── platform-foundation.png
-    ├── sales-cloud.png
-    ├── service-cloud.png
-    ├── sharing-architect.png
-    └── linkedin.svg
-```
+1. Application Architect
+2. Platform Data Architect
+3. Sharing & Visibility Architect
+4. Platform Developer II
+5. Platform Developer I
+6. JavaScript Developer I
+7. B2C Commerce Developer
+8. Platform App Builder
+9. Platform Administrator
+10. Platform Foundations
 
 ## Contact
 

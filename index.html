@@ -336,6 +336,87 @@
             margin-top: 6px;
         }
 
+        /* Open Source Apps */
+        #apps {
+            background: #f0f4f8;
+        }
+
+        .app-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-card:hover {
+            border-color: var(--primary-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .app-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .app-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .app-desc {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 16px;
+        }
+
+        .app-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .app-feature {
+            background: #ecfdf5;
+            color: #047857;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .app-link:hover {
+            color: #4285f4;
+        }
+
         /* Tech Stack - Box Layout */
         .tech-box {
             background: #fff;
@@ -501,7 +582,7 @@
 
         .btn-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(152, 150, 150, 0.15);
             color: #fff !important;
         }
 
@@ -693,6 +774,7 @@
                             <li className="nav-item"><a className="nav-link" href="#expertise">Expertise</a></li>
                             <li className="nav-item"><a className="nav-link" href="#projects">Projects</a></li>
                             <li className="nav-item"><a className="nav-link" href="#certifications">Certifications</a></li>
+                            <li className="nav-item"><a className="nav-link" href="#apps">Apps</a></li>
                             <li className="nav-item"><a className="nav-link" href="#experience">Experience</a></li>
                             <li className="nav-item"><a className="nav-link" href="#reviews">Reviews</a></li>
                             <li className="nav-item ms-2">
@@ -841,6 +923,37 @@
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+        );
+
+        const OpenSourceApps = () => (
+            <section id="apps" className="py-5">
+                <div className="container">
+                    <p className="section-title">Open Source</p>
+                    <h2 className="section-heading">My Built Apps & Tools</h2>
+                    <div className="row g-4">
+                        <div className="col-md-6 col-lg-4">
+                            <div className="app-card">
+                                <div className="app-icon">
+                                    <i className="bi bi-calendar2-check"></i>
+                                </div>
+                                <h5 className="app-title">Multi-ICS Calendar Sync</h5>
+                                <p className="app-desc">
+                                    Automatically sync multiple ICS calendar feeds into Google Calendar. Creates copies of events from external calendars (Outlook, other Google Calendars) and keeps them in sync with automatic cleanup.
+                                </p>
+                                <div className="app-features">
+                                    <span className="app-feature">✅ Multi-feed Sync</span>
+                                    <span className="app-feature">✅ Auto Cleanup</span>
+                                    <span className="app-feature">✅ Color Coding</span>
+                                    <span className="app-feature">✅ Timezone Aware</span>
+                                </div>
+                                <a href="https://github.com/shekharh500/multi-ics-calendar-sync" target="_blank" className="app-link">
+                                    <i className="bi bi-github"></i> View on GitHub <i className="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1003,6 +1116,9 @@
                             <a href="https://appexchange.salesforce.com/appxConsultingListingDetail?listingId=a0N4V00000HZjJcUAL" target="_blank" className="social-link">
                                 <i className="bi bi-box-seam"></i>
                             </a>
+                            <a href="https://github.com/shekharh500/multi-ics-calendar-sync" target="_blank" className="social-link" title="Multi-ICS Calendar Sync - Sync multiple ICS feeds to Google Calendar">
+                                <i className="bi bi-calendar2-check"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1039,6 +1155,7 @@
                     <Expertise />
                     <Projects />
                     <Certifications />
+                    <OpenSourceApps />
                     <TechStack />
                     <Experience />
                     <Testimonials />

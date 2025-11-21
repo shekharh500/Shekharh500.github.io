@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshu Shekhar | Salesforce Architect</title>
+    <meta name="description" content="Salesforce Solution Architect & Developer with 7+ years of experience building scalable solutions, integrations, and AppExchange apps.">
+    <meta name="keywords" content="Salesforce, Architect, Developer, CPQ, LWC, Apex, Integration, AppExchange">
+    <meta name="author" content="Himanshu Shekhar">
+    <link rel="canonical" href="https://shekharh500.github.io">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0b;
+            --card: #111113;
+            --card-hover: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --accent: #0176d3;
+            --accent-light: #1b96ff;
+            --green: #22c55e;
+            --gradient: linear-gradient(135deg, #0176d3, #1b96ff);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 11, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent-light);
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(1, 118, 211, 0.4);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 0 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 60px rgba(1, 118, 211, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 80px rgba(1, 118, 211, 0.4);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 20px rgba(1, 118, 211, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 30px rgba(1, 118, 211, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 80px;
+        }
+
+        .stat {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .service {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .service:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(1, 118, 211, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent-light);
+        }
+
+        .service h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .service p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .project-header {
+            padding: 20px 20px 12px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(1, 118, 211, 0.15);
+            color: var(--accent-light);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .project h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding: 0 20px 16px;
+        }
+
+        .project-tech {
+            padding: 12px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-tech span {
+            background: var(--bg);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .project-stats {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .project-stat {
+            text-align: center;
+        }
+
+        .project-stat-num {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-light);
+        }
+
+        .project-stat-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .cert {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .cert:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .cert-badge {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 12px;
+        }
+
+        .cert-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cert-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--text);
+        }
+
+        .cert-date {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Tech Stack */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .tech-tag:hover {
+            border-color: var(--accent);
+            color: var(--text);
+        }
+
+        .tech-category {
+            margin-bottom: 24px;
+        }
+
+        .tech-category-title {
+            font-size: 0.7rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .testimonial {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+
+        .testimonial:hover {
+            border-color: var(--accent);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .testimonial-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .testimonial-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .testimonial-role {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .testimonial-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Timeline */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .timeline-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .timeline-item.current {
+            border-color: var(--accent);
+        }
+
+        .timeline-item.current::before {
+            content: 'Current';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--green);
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--accent-light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .timeline-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .timeline-skill {
+            background: var(--bg);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 60px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            font-size: 1.05rem;
+        }
+
+        .cta-note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 28px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent);
+            color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 24px 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .cert-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .hero-image img {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cert-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .timeline {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content {
+                gap: 30px;
+            }
+            
+            .hero-image img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cert-badge {
+                width: 60px;
+                height: 60px;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .cta {
+                padding: 40px 24px;
+            }
+            
+            .cta h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">Himanshu<span>.</span></div>
+            <nav>
+                <a href="#expertise">Expertise</a>
+                <a href="#projects">Projects</a>
+                <a href="#certs">Certifications</a>
+                <a href="#experience">Experience</a>
+                <a href="#reviews">Reviews</a>
+                <a href="https://www.upwork.com/freelancers/salesforcecertifiedexpert" target="_blank" class="nav-cta">Hire Me</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="profile.jpg" alt="Himanshu Shekhar - Salesforce Architect">
+                </div>
+                <div class="hero-text">
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        Available for Projects
+                    </div>
+                    <h1>Salesforce Solutions<br>Built to <span>Scale</span></h1>
+                    <p class="hero-subtitle">Architect & Developer with 7+ years building systems that don't just work, but scale. From complex integrations to AppExchange apps—clean, governor-limit-friendly code that teams can actually maintain.</p>
+                    <div class="hero-btns">
+                        <a href="https://www.upwork.com/freelancers/salesforcecertifiedexpert" target="_blank" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4M12 16V8"/></svg>
+                            View on Upwork
+                        </a>
+                        <a href="https://www.salesforce.com/trailblazer/shekharh500" target="_blank" class="btn btn-secondary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                            Trailblazer Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat">
+                <div class="stat-num">7+</div>
+                <div class="stat-label">Years Exp</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">10K+</div>
+                <div class="stat-label">Hours</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">100+</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">15</div>
+                <div class="stat-label">Certifications</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">3</div>
+                <div class="stat-label">AppExchange</div>
+            </div>
+        </section>
+
+        <section class="section" id="expertise">
+            <div class="section-header">
+                <div class="section-title">What I Bring</div>
+                <h2 class="section-heading">Core Expertise</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h3>Technical Depth</h3>
+                    <p>Apex, LWC, Flows, Triggers, Batch/Queueable Jobs. Data modeling, security architecture (FLS/CRUD/Sharing), and org optimization.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Integration Specialist</h3>
+                    <p>20+ platforms connected with rock-solid error handling. REST/SOAP APIs, Named Credentials, OAuth, middleware tools, event-driven architecture.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <h3>AppExchange Publisher</h3>
+                    <p>Built 3 managed packages from scratch. Know the ins and outs of packaging, ISV reviews, LMA setups, and security reviews.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>CPQ & Billing</h3>
+                    <p>Salesforce CPQ implementation, complex pricing rules, subscription billing, and payment gateway integrations including custom Stripe Elements.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <h3>CTI Systems</h3>
+                    <p>RingCentral, Amazon Connect, 8x8, Service Cloud Voice implementations with IVR, call recording, and real-time transcription.</p>
+                </div>
+                <div class="service">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Multi-Cloud Experience</h3>
+                    <p>Sales, Service, Marketing, Financial Services Cloud, Commerce B2C, Experience Cloud. Real-world implementations—not just theory.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="section-header">
+                <div class="section-title">Case Studies</div>
+                <h2 class="section-heading">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project">
+                    <div class="project-header">
+                        <span class="project-tag">CPQ & Billing</span>
+                        <h3>Energy Sector Platform</h3>
+                    </div>
+                    <p class="project-desc">Revolutionized energy supply operations with Salesforce, MuleSoft, and WooCommerce integration. Built two specialized orgs for agent and operations teams with real-time data sync.</p>
+                    <div class="project-tech">
+                        <span>CPQ</span>
+                        <span>MuleSoft</span>
+                        <span>WooCommerce</span>
+                        <span>LWC</span>
+                        <span>Apex</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-num">3500+</div>
+                            <div class="project-stat-label">Agent Users</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-num">240+</div>
+                            <div class="project-stat-label">Ops Users</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <span class="project-tag">Service Cloud</span>
+                        <h3>Roofing Operations</h3>
+                    </div>
+                    <p class="project-desc">Transformed roofing company with Service Cloud Voice, Amazon Connect CTI, IVR system, and Experience Cloud portals for customers and field agents.</p>
+                    <div class="project-tech">
+                        <span>Service Cloud</span>
+                        <span>Amazon Connect</span>
+                        <span>Twilio</span>
+                        <span>Experience Cloud</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-num">2</div>
+                            <div class="project-stat-label">Portals Built</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-num">100%</div>
+                            <div class="project-stat-label">Call Recording</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <span class="project-tag">NPSP</span>
+                        <h3>Charity Fundraising</h3>
+                    </div>
+                    <p class="project-desc">Enhanced nonprofit operations with NPSP and Experience Cloud. Integrated Funraisin, JustGiving, Raisely via Zapier for seamless donor management.</p>
+                    <div class="project-tech">
+                        <span>NPSP</span>
+                        <span>Experience Cloud</span>
+                        <span>Zapier</span>
+                        <span>LWR</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-num">4</div>
+                            <div class="project-stat-label">Platforms</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-num">2</div>
+                            <div class="project-stat-label">Portals</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <span class="project-tag">CPQ</span>
+                        <h3>Manufacturing CPQ</h3>
+                    </div>
+                    <p class="project-desc">Implemented Salesforce CPQ to automate product selection, pricing, and discounts for a manufacturing company with complex pricing structure.</p>
+                    <div class="project-tech">
+                        <span>Salesforce CPQ</span>
+                        <span>ERP Integration</span>
+                        <span>Apex</span>
+                        <span>Flows</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-num">70%</div>
+                            <div class="project-stat-label">Faster Quoting</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-num">25%</div>
+                            <div class="project-stat-label">Revenue Boost</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <span class="project-tag">Financial Services</span>
+                        <h3>Loan Automation</h3>
+                    </div>
+                    <p class="project-desc">Customized Salesforce with loan-specific objects and automated approval processes using Flow and Process Builder for a financial services company.</p>
+                    <div class="project-tech">
+                        <span>FSC</span>
+                        <span>Approval Processes</span>
+                        <span>Flow Builder</span>
+                        <span>Validation Rules</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-num">80%</div>
+                            <div class="project-stat-label">Less Manual Work</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-num">60%</div>
+                            <div class="project-stat-label">Faster Approval</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-header">
+                        <span class="project-tag">Healthcare</span>
+                        <h3>Patient Management UI</h3>
+                    </div>
+                    <p class="project-desc">Built custom healthcare interface using LWC and JavaScript with quick search, real-time data updates, and interactive health tracking charts.</p>
+                    <div class="project-tech">
+                        <span>LWC</span>
+                        <span>JavaScript</span>
+                        <span>Health Cloud</span>
+                        <span>Charts</span>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <div class="project-stat-num">↑</div>
+                            <div class="project-stat-label">Data Accuracy</div>
+                        </div>
+                        <div class="project-stat">
+                            <div class="project-stat-num">Real-time</div>
+                            <div class="project-stat-label">Updates</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="certs">
+            <div class="section-header">
+                <div class="section-title">Credentials</div>
+                <h2 class="section-heading">15x Salesforce Certified</h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/app-architect.png" alt="Application Architect">
+                    </div>
+                    <div class="cert-name">Application Architect</div>
+                    <div class="cert-date">Jul 2023</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/data-architect.png" alt="Data Architect">
+                    </div>
+                    <div class="cert-name">Platform Data Architect</div>
+                    <div class="cert-date">Jul 2023</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/sharing-architect.png" alt="Sharing and Visibility Architect">
+                    </div>
+                    <div class="cert-name">Sharing & Visibility Architect</div>
+                    <div class="cert-date">May 2023</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/pd2.png" alt="Platform Developer II">
+                    </div>
+                    <div class="cert-name">Platform Developer II</div>
+                    <div class="cert-date">Aug 2020</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/pd1.png" alt="Platform Developer I">
+                    </div>
+                    <div class="cert-name">Platform Developer I</div>
+                    <div class="cert-date">Jul 2020</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/js1.png" alt="JavaScript Developer I">
+                    </div>
+                    <div class="cert-name">JavaScript Developer I</div>
+                    <div class="cert-date">Jul 2022</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/data-cloud.png" alt="Data Cloud Consultant">
+                    </div>
+                    <div class="cert-name">Data Cloud Consultant</div>
+                    <div class="cert-date">Jul 2023</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/app-builder.png" alt="Platform App Builder">
+                    </div>
+                    <div class="cert-name">Platform App Builder</div>
+                    <div class="cert-date">Jul 2022</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/admin.png" alt="Platform Administrator">
+                    </div>
+                    <div class="cert-name">Platform Administrator</div>
+                    <div class="cert-date">Jul 2022</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/platform-foundation.png" alt="Platform Foundations">
+                    </div>
+                    <div class="cert-name">Platform Foundations</div>
+                    <div class="cert-date">Aug 2024</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/sales-cloud.png" alt="Sales Cloud Consultant">
+                    </div>
+                    <div class="cert-name">Sales Cloud Consultant</div>
+                    <div class="cert-date">2023</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/service-cloud.png" alt="Service Cloud Consultant">
+                    </div>
+                    <div class="cert-name">Service Cloud Consultant</div>
+                    <div class="cert-date">2023</div>
+                </div>
+                <div class="cert">
+                    <div class="cert-badge">
+                        <img src="icons/experience-cloud.png" alt="Experience Cloud Consultant">
+                    </div>
+                    <div class="cert-name">Experience Cloud Consultant</div>
+                    <div class="cert-date">2023</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <div class="section-title">Technology</div>
+                <h2 class="section-heading">Tech Stack</h2>
+            </div>
+            
+            <div class="tech-category">
+                <div class="tech-category-title">Salesforce Development</div>
+                <div class="tech-grid">
+                    <span class="tech-tag">Apex</span>
+                    <span class="tech-tag">Lightning Web Components</span>
+                    <span class="tech-tag">Aura Components</span>
+                    <span class="tech-tag">Visualforce</span>
+                    <span class="tech-tag">Flows</span>
+                    <span class="tech-tag">Triggers</span>
+                    <span class="tech-tag">SOQL/SOSL</span>
+                    <span class="tech-tag">Platform Events</span>
+                    <span class="tech-tag">Change Data Capture</span>
+                    <span class="tech-tag">Batch Apex</span>
+                    <span class="tech-tag">Queueable Apex</span>
+                    <span class="tech-tag">Scheduled Jobs</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <div class="tech-category-title">Salesforce Clouds</div>
+                <div class="tech-grid">
+                    <span class="tech-tag">Sales Cloud</span>
+                    <span class="tech-tag">Service Cloud</span>
+                    <span class="tech-tag">Experience Cloud</span>
+                    <span class="tech-tag">Marketing Cloud</span>
+                    <span class="tech-tag">Salesforce CPQ</span>
+                    <span class="tech-tag">Salesforce Billing</span>
+                    <span class="tech-tag">Financial Services Cloud</span>
+                    <span class="tech-tag">Health Cloud</span>
+                    <span class="tech-tag">Data Cloud</span>
+                    <span class="tech-tag">Einstein Analytics</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <div class="tech-category-title">Integrations (20+)</div>
+                <div class="tech-grid">
+                    <span class="tech-tag">REST APIs</span>
+                    <span class="tech-tag">SOAP APIs</span>
+                    <span class="tech-tag">MuleSoft</span>
+                    <span class="tech-tag">Stripe</span>
+                    <span class="tech-tag">PandaDoc</span>
+                    <span class="tech-tag">DocuSign</span>
+                    <span class="tech-tag">Twilio</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">Zapier</span>
+                    <span class="tech-tag">Slack</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <div class="tech-category-title">CTI & Telephony</div>
+                <div class="tech-grid">
+                    <span class="tech-tag">Amazon Connect</span>
+                    <span class="tech-tag">RingCentral</span>
+                    <span class="tech-tag">8x8</span>
+                    <span class="tech-tag">Service Cloud Voice</span>
+                    <span class="tech-tag">IVR Systems</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <div class="tech-category-title">DevOps & Tools</div>
+                <div class="tech-grid">
+                    <span class="tech-tag">Git/GitHub</span>
+                    <span class="tech-tag">GitLab CI/CD</span>
+                    <span class="tech-tag">SFDX CLI</span>
+                    <span class="tech-tag">VS Code</span>
+                    <span class="tech-tag">Copado</span>
+                    <span class="tech-tag">Data Loader</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="experience">
+            <div class="section-header">
+                <div class="section-title">Career Journey</div>
+                <h2 class="section-heading">Professional Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item current">
+                    <div class="timeline-date">March 2024 - Present</div>
+                    <div class="timeline-title">Salesforce Solution Architect</div>
+                    <div class="timeline-company">Independent Consultant</div>
+                    <p class="timeline-desc">Design and build customized Salesforce solutions. Specialize in custom applications, seamless integrations, and efficient workflows using LWC and Apex.</p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill">Solution Architecture</span>
+                        <span class="timeline-skill">LWC</span>
+                        <span class="timeline-skill">CTI</span>
+                        <span class="timeline-skill">Integrations</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2022 - Mar 2024</div>
+                    <div class="timeline-title">Salesforce Technical Lead</div>
+                    <div class="timeline-company">Cloudsheer Consulting</div>
+                    <p class="timeline-desc">Led teams through Marketing Cloud, Pardot, and CPQ implementations. Focused on exceeding expectations by deeply understanding customer needs.</p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill">Team Leadership</span>
+                        <span class="timeline-skill">Marketing Cloud</span>
+                        <span class="timeline-skill">CPQ</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2020 - Aug 2022</div>
+                    <div class="timeline-title">Sr. Salesforce Developer</div>
+                    <div class="timeline-company">Kcloud Technologies</div>
+                    <p class="timeline-desc">Developed AppExchange application for bulk SMS messaging. Built sophisticated data models and collaborated with diverse teams.</p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill">AppExchange</span>
+                        <span class="timeline-skill">LWC</span>
+                        <span class="timeline-skill">Data Modeling</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2019 - Aug 2020</div>
+                    <div class="timeline-title">Salesforce Developer</div>
+                    <div class="timeline-company">Kcloud Technologies</div>
+                    <p class="timeline-desc">Analyzed customer requirements and injected innovative ideas into development strategy. Proposed technical enhancements and features.</p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill">Apex</span>
+                        <span class="timeline-skill">Lightning</span>
+                        <span class="timeline-skill">Visualforce</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2019 - Apr 2019</div>
+                    <div class="timeline-title">Salesforce Admin/Developer</div>
+                    <div class="timeline-company">AlmaMate Info Tech</div>
+                    <p class="timeline-desc">Specialized in Lightning, Apex, and Visualforce. Developed CRM solutions and integrated systems.</p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill">CRM Solutions</span>
+                        <span class="timeline-skill">System Integration</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2018 - Jan 2019</div>
+                    <div class="timeline-title">Java Developer</div>
+                    <div class="timeline-company">NASSCOM</div>
+                    <p class="timeline-desc">Created "InAppChat" using Java Swing with networking and socket programming for real-time communication.</p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill">Java</span>
+                        <span class="timeline-skill">Socket Programming</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="reviews">
+            <div class="section-header">
+                <div class="section-title">Client Feedback</div>
+                <h2 class="section-heading">What Clients Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"Himanshu is one of the hidden treasures in the Salesforce Ecosystem. Amazing professional with incredible sense of responsibility! He built one of the best development pipeline processes using GitLab and Salesforce Integration."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DT</div>
+                            <div>
+                                <div class="testimonial-name">DevOps Client</div>
+                                <div class="testimonial-role">GitLab CI/CD Project</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-date">May 2024</div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"Himanshu's patient and diligent approach to problem solving and his knowledge of Salesforce CPQ and Billing were critical for a unique customization challenge. Always up for custom Stripe Elements implementations."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">JM</div>
+                            <div>
+                                <div class="testimonial-name">CPQ Client</div>
+                                <div class="testimonial-role">CPQ + Stripe Integration</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-date">5.00</div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"Working with Himanshu was a game-changer. Not only did he bring superb technical knowledge but also a knack for simplifying complex issues. His dedication to clear communication and effective solutions stood out."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SK</div>
+                            <div>
+                                <div class="testimonial-name">Enterprise Client</div>
+                                <div class="testimonial-role">Complex Implementation</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-date">5.00</div>
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p>"Giving 5 stars because I can't give 10! We are very happy with the skill-set that Himanshu brings to the table and are moving him to a more advanced project."</p>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RC</div>
+                            <div>
+                                <div class="testimonial-name">Long-term Client</div>
+                                <div class="testimonial-role">Multiple Projects</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-date">May 2024</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Let's Build Something Great</h2>
+            <p>Got a Salesforce challenge? Whether it's a messy org, a tricky integration, or a greenfield build—let's chat.</p>
+            <a href="https://www.upwork.com/freelancers/salesforcecertifiedexpert" target="_blank" class="btn btn-primary">
+                Start a Conversation
+            </a>
+            <p class="cta-note">Also available for emergency hotfixes. If your production's on fire, I can usually jump in same-day.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/shekharh500" target="_blank" class="social-link" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://github.com/shekharh500" target="_blank" class="social-link" title="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="https://www.salesforce.com/trailblazer/shekharh500" target="_blank" class="social-link" title="Trailhead">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            © 2024 Himanshu Shekhar. Salesforce Solution Architect & Developer.
+        </footer>
+    </div>
+</body>
+</html>
